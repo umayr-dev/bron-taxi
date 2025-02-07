@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="uz">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <title>Buyurtma shakli</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        font-family: "Inter", sans-serif;
+        /* font-family: Arial, sans-serif; */
+      }
+
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        background-color: #f3f3f3;
+      }
+
+      .container {
+        width: 90%;
+        /* max-width: 400px; */
+
+        max-width: 400px; /* Maksimal kenglikni 400px bilan cheklash */
+        min-width: 320px; /* Juda kichrayib ketmasligi uchun minimal kenglik */
+        /* margin: 0 auto; */
+
+        background: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        gap: 10px;
+        display: flex;
+        flex-direction: column;
+      }
+      textarea {
+        resize: none; /* O'lchamini o'zgartirishni bloklash */
+      }
+
+      select,
+      button,
+      input,
+      textarea {
+        width: 100%;
+        padding: 12px;
+        margin-top: 10px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        font-size: 16px;
+      }
+
+      .pochta-btn {
+        display: flex;
+        align-items: center;
+        justify-content: start;
+        gap: 10px;
+        background: #f7f7f7;
+        cursor: pointer;
+        border: none;
+        padding: 15px 20px;
+      }
+
+      .pochta-btn.active {
+        background: #007bff;
+        color: white;
+      }
+
+      .passenger-buttons {
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .passenger-buttons button {
+        width: 20%;
+        height: 60px;
+        padding: 12px;
+        font-size: 16px;
+        border: none;
+        border-radius: 5px;
+        background-color: #fff;
+        border: 1px solid #ccc;
+        cursor: pointer;
+      }
+
+      .passenger-buttons button.active {
+        background: #007bff;
+        color: white;
+      }
+
+      .submit-btn {
+        background: #007bff;
+        color: white;
+        font-weight: bold;
+        border: none;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+      }
+      .message {
+        height: 100px;
+      }
+      .passenger {
+        display: flex;
+        flex-direction: column;
+        margin: 20px 0;
+        row-gap: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <select>
+        <option>Qo‘qon → Toshkent</option>
+        <option>Toshkent → Qo‘qon</option>
+      </select>
+
+      <button class="pochta-btn">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          style="fill: rgba(0, 0, 0, 1)"
+        >
+          <path
+            d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4.7-8 5.334L4 8.7V6.297l8 5.333 8-5.333V8.7z"
+          ></path>
+        </svg>
+        Pochta
+      </button>
+      <div class="passenger">
+        <p>Yo'lovchilar soni</p>
+        <div class="passenger-buttons">
+          <button class="passenger-btn">1</button>
+          <button class="passenger-btn">2</button>
+          <button class="passenger-btn">3</button>
+          <button class="passenger-btn">4</button>
+        </div>
+      </div>
+
+      <input type="tel" placeholder="+998 Telefon raqam" />
+      <textarea class="message" placeholder="Qo‘shimcha xabar"></textarea>
+
+      <button class="submit-btn">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          style="fill: rgba(242, 237, 237, 1)"
+        >
+          <path
+            d="m20.665 3.717-17.73 6.837c-1.21.486-1.203 1.161-.222 1.462l4.552 1.42 10.532-6.645c.498-.303.953-.14.579.192l-8.533 7.701h-.002l.002.001-.314 4.692c.46 0 .663-.211.921-.46l2.211-2.15 4.599 3.397c.848.467 1.457.227 1.668-.785l3.019-14.228c.309-1.239-.473-1.8-1.282-1.434z"
+          ></path>
+        </svg>
+        Yuborish
+      </button>
+    </div>
+
+    <script>
+      const pochtaBtn = document.querySelector(".pochta-btn");
+      const passengerButtons = document.querySelectorAll(".passenger-btn");
+
+      pochtaBtn.addEventListener("click", function () {
+        if (!this.classList.contains("active")) {
+          this.classList.add("active");
+          passengerButtons.forEach((btn) => {
+            btn.disabled = true;
+            btn.classList.remove("active");
+          });
+        } else {
+          this.classList.remove("active");
+          passengerButtons.forEach((btn) => (btn.disabled = false));
+        }
+      });
+
+      passengerButtons.forEach((button) => {
+        button.addEventListener("click", function () {
+          if (!pochtaBtn.classList.contains("active")) {
+            passengerButtons.forEach((btn) => btn.classList.remove("active"));
+            this.classList.add("active");
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
