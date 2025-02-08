@@ -20,6 +20,9 @@
         margin: 0;
         padding: 0;
         font-family: "Inter", sans-serif;
+        -webkit-tap-highlight-color: transparent;
+        user-select: none;
+        touch-action: manipulation; 
       }
 
       body {
@@ -27,14 +30,14 @@
         justify-content: center;
         align-items: center;
         min-height: 100vh;
-        background-color: #212121; /* Qora fon */
+        background-color: #212121; 
       }
 
       .container {
         width: 90%;
         max-width: 400px;
         min-width: 320px;
-        background: #333; /* Qoraga yaqin kulrang */
+        background: #333; 
         padding: 20px;
         border-radius: 10px;
         box-shadow: 0 4px 10px rgba(255, 193, 7, 0.2);
@@ -56,9 +59,9 @@
         padding: 12px;
         margin-top: 10px;
         border-radius: 5px;
-        border: 1px solid #ffc107; /* Sariq border */
+        border: 1px solid #ffc107; 
         font-size: 16px;
-        background: #444; /* To‘q kulrang */
+        background: #444; 
         color: white;
         transition: all 0.3s ease-in-out;
       }
@@ -66,7 +69,7 @@
       input:focus,
       textarea:focus,
       select:focus {
-        border: 1px solid #ffeb3b; /* Yorqin sariq */
+        border: 1px solid #ffeb3b; 
         outline: none;
         background: #555;
       }
@@ -81,12 +84,6 @@
         border: none;
         padding: 15px 20px;
         transition: all 0.3s ease-in-out;
-      }
-      /* Mobile bosilganda rang o'zgarishini oldini olish */
-      .passenger-buttons button {
-        -webkit-tap-highlight-color: transparent;
-        user-select: none; /* Matn tanlanishini oldini oladi */
-        touch-action: manipulation; /* iOS va Android uchun yaxshiroq bosish effekti */
       }
 
       .pochta-btn.active {
