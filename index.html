@@ -93,7 +93,7 @@
         justify-content: space-between;
       }
 
-      .passenger-buttons button {
+      .passenger-buttons .passenger-btn {
         width: 60px;
         height: 60px;
         padding: 12px;
@@ -105,9 +105,12 @@
         cursor: pointer;
         color: white;
         transition: all 0.3s ease-in-out;
+        display: flex;
+        align-items: center;
+        justify-content: center;
       }
 
-      .passenger-buttons button.active {
+      .passenger-buttons .passenger-btn.active {
         background: #ffc107;
         color: black;
       }
@@ -166,10 +169,14 @@
       <div class="passenger">
         <p>Yo'lovchilar soni</p>
         <div class="passenger-buttons">
-          <button class="passenger-btn">1</button>
+          <!-- <button class="passenger-btn">1</button>
           <button class="passenger-btn">2</button>
           <button class="passenger-btn">3</button>
-          <button class="passenger-btn">4</button>
+          <button class="passenger-btn">4</button> -->
+          <div class="passenger-btn">1</div>
+          <div class="passenger-btn">2</div>
+          <div class="passenger-btn">3</div>
+          <div class="passenger-btn">4</div>
         </div>
       </div>
 
